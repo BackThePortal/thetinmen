@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Name of the category 1",
+    "description": "A brief text summarizing the topic.",
+    "posts": [
+      {
+        "name": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/"
+      },
+      {
+        "name": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/"
+      },
+      7
+    ]
+  },
+  {
+    "name": "Name of the category 2",
+    "description": "A brief text summarizing the topic.",
+    "posts": [
+      {
+        "name": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/"
+      },
+      {
+        "name": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/"
+      },
+      7
+    ]
+  },
+  {
+    "name": "Name of the category 2",
+    "description": "A brief text summarizing the topic.",
+    "posts": [
+      {
+        "name": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/"
+      },
+      {
+        "name": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/"
+      },
+      7
+    ]
+  },
+  {
+    "name": "Name of the category 2",
+    "description": "A brief text summarizing the topic.",
+    "posts": [
+      {
+        "name": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/"
+      },
+      {
+        "name": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/"
+      },
+      7
+    ]
+  },
+  {
+    "name": "Name of the category 2",
+    "description": "A brief text summarizing the topic.",
+    "posts": [
+      {
+        "name": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/"
+      },
+      {
+        "name": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/"
+      },
+      7
+    ]
+  },
+  {
+    "name": "Name of the category 2",
+    "description": "A brief text summarizing the topic.",
+    "posts": [
+      {
+        "name": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/"
+      },
+      {
+        "name": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/"
+      },
+      7
+    ]
+  },
+  {
+    "name": "Name of the category 2",
+    "description": "A brief text summarizing the topic.",
+    "posts": [
+      {
+        "name": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/"
+      },
+      {
+        "name": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/"
+      },
+      7
+    ]
+  }
+]

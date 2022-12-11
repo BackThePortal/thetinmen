@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
-h1 {
-    @apply text-3xl font-extrabold
+@layer base {
+    h1 {
+        @apply text-3xl font-extrabold
+    }
+    h2 {
+        @apply font-medium text-xl pb-1
+    }
+}
+@layer components {
+    .btn-slate {
+        @apply transition-all hover:text-slate-100 underline underline-offset-2 hover:decoration-slate-300/0 border border-transparent hover:border-slate-100 rounded-lg px-2 py-1 active:ring active:ring-slate-500 active:bg-slate-600
+    }
 }
 

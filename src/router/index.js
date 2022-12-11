@@ -3,10 +3,11 @@ import {createRouter, createWebHistory} from 'vue-router';
 
 const routes = [
 	// Pages
-	{ path: '/',              name: 'home', component: () => import('../home.vue') },
+	{ path: '/home',              name: 'home',         component: () => import('@/home.vue') },
+	{ path: '/topic/:id',         name: 'topic',        component: () => import('@/topic.vue') },
 
 	// Redirects
-	{ path: '/home',            redirect: '/'},
+	{ path: '/',                  redirect: '/home'},
 ]
 
 const router = createRouter({

@@ -8,7 +8,11 @@ module.exports = {
       fontFamily: {
           sans: ["Roboto Slab", "sans-serif"]
       },
-      extend: {},
+      extend: {
+          height: {
+              '120': '30rem'
+          }
+      },
   },
   plugins: [],
 }

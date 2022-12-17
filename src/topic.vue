@@ -1,5 +1,4 @@
 <template>
-
 	<div>
 		<div class="mt-12 mb-4 w-full text-center">
 			<router-link to="/home" class="btn-slate">&larr; Back to topics</router-link>

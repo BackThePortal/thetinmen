@@ -22,7 +22,7 @@ Uses Vue.js and TailwindCSS.
 
 ## Installation
 If you want to run the website locally, follow these steps. Make sure [Node.js](https://nodejs.org/) is installed in your computer.
-1. Download the source code and decompress the zip.
+1. Clone the repository or download the source code and decompress the zip.
 2. Open a Command Prompt/Powershell (Windows) or Terminal (macOS/Linux) window in the source code root folder.
 3. Install the dependencies using the following command:
     ```shell
@@ -42,8 +42,6 @@ to see the website.
 This section is for people interested in contributing to the project.
 
 ### Extending posts and topics
-*Note: The word "topic" is used to refer to a collection of posts. The word "category" refers to the thumbnails that link to the topics in the home page.*
-
 
 To make adding content to the website as easy as possible (both for myself and possible contributors), I created an 
 API that reads a JSON file called [posts.json](posts.json) that contains all the necessary information. This is how 
@@ -52,7 +50,7 @@ it looks:
 ````json
 [
 	{
-		"name": "Name of the category 1",
+		"name": "Name of the topic 1",
 		"description": "A brief text summarizing the topic",
 		"posts": [
 			{
@@ -67,20 +65,20 @@ it looks:
 			}
 		]
 	}
+  ...
 ]
 ````
 
 Please read the contribution guide to learn how to add data to this file.
 #### Adding a post
-Adding a new post to a category is as simple as moving the image file of the thumbnail to the [posts](posts) folder and then adding an object
-to the category's posts array. The post object supports many properties, but you'll want to specify at least `"title"`, `"source"` and `"link"`. See the API reference for the full list.
+Adding a new post to a topic is as simple as moving the image file of the thumbnail to the [posts](posts) folder and 
+then adding an object
+to the posts array. The post object supports many properties, but you'll want to specify at least `"title"`, `"source"` and `"link"`. See the API reference for the full list.
 
 The image filename must be `{NUMBER}.jpg`. The `"source"` key refers to the number. The extension mustn't be specified.
 
 #### Adding a new topic
 Add a new object to the root array and declare the properties `"name"`, `"description"` and `"posts"`. See the API reference for the full list of properties.
-
-The first post of the category will be used as a thumbnail for the category. Alternatively, you can also add the property `"thumbnail"` to override this behaviour and specify any image you want. The value is treated the same way as the `"source"` key in the post object.
 
 #### Checking errors
 The JSON structure can be checked using `npm run test`. If anything's wrong, an error will be thrown.

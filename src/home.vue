@@ -1,10 +1,9 @@
 <template>
 <div>
 	<span class="text-center mt-8" v-html="`<b>${count.posts}</b> post${count.posts > 1 ? 's' : ''} in <b>${count.topics}</b> topic${count.topics > 1 ? 's' : ''}`"></span>
-	<div class="mt-4 w-full py-8 border-y border-slate-300 ">
-		<div class="w-full flex justify-center mb-6">
-			<router-link to="/home" :class="[route.path === '/home' ? 'outline z-20' : 'outline-0 z-0']" class="outline-slate-600 basis-1/2 ml-[40%] transition text-center border border-slate-300 bg-slate-500 hover:bg-slate-300 active:bg-slate-800 active:text-slate-200 rounded-l-2xl px-2 py-1">Topics</router-link>
-			<router-link to="/home/list" :class="[route.path === '/home/list' ? 'outline z-20' : 'outline-0 z-0']" class="outline-slate-600 basis-1/2 mr-[40%] transition text-center border border-slate-300 bg-slate-500 hover:bg-slate-300 active:bg-slate-800 active:text-slate-200 rounded-r-2xl px-2 py-1">List</router-link>
+	<div class="mt-4 w-full py-8 border-y border-slate-300 space-y-8">
+		<div class="w-full flex justify-center">
+			<FilterButton v-for="filter in filters" :key="filter.name" :name="filter.name" :path="filter.path"/>
 		</div>
 		<router-view></router-view>
 	</div>
@@ -16,18 +15,28 @@
 </template>
 
 <script setup>
-import Posts from "@/../posts.json"
-import {useRoute} from "vue-router";
+import FilterButton from "@/components/home/filterButton.vue";
+import {getPostsList} from "@/js/utils";
+import parsedPosts from "@/js/parse";
 
 const count = {
-	topics: Posts.flat().length,
-	posts: Posts.flat().map(a => a.posts).flat().length
+	topics: parsedPosts.flat().length,
+	posts: getPostsList(parsedPosts).length
 }
-const route = useRoute()
 
+const filters = [
+	{
+		name: 'Topics',
+		path: '/home/topics'
+	},
+	{
+		name: 'Posts',
+		path: '/home/list'
+	},
+	{
+		name: 'Timeline',
+		path: '/home/timeline'
+	}
+]
 
 </script>
-
-<style scoped>
-
-</style>

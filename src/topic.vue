@@ -9,12 +9,12 @@
 			<p class="text-center text-slate-700 mt-4">
 				Sorted by
 				<span class="">Date</span>,
-				<span class="action-link">
-					Descending
+				<span @click="sortBy.order = sortBy.order === 'ascending' ? 'descending' : 'ascending'" class="action-link">
+					{{ sortBy.order.replace(/(^\w|\s\w)/g, a => a.toUpperCase()) }}
 				</span>
 			</p>
 			<div class="flex flex-row flex-wrap gap-4 select-none justify-center my-4">
-				<Post v-for="(post, index) in data.posts" :id="post.id" :data="post" :key="post.id"></Post>
+				<Post v-for="post in posts" :id="post.id" :data="post" :key="post.id"></Post>
 			</div>
 
 		</div>
@@ -22,32 +22,47 @@
 </template>
 
 <script setup>
-import Posts from "@/../posts.json";
-import { ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import {onBeforeRouteUpdate, useRoute} from "vue-router";
 import Post from "@/components/post.vue";
-import { dateToObject } from "@/js/utils";
 
 import parsedPosts from "@/js/parse";
 
 const route = useRoute();
-const data = ref();
-fetchData(route.params.id);
 
-function fetchData(id) {
-	data.value = parsedPosts.slice()[id-1];
-	console.log(parsedPosts)
-	data.value.posts.sort((a, b) =>
-		b.date - a.date
-	);
-	console.log(data.value.posts)
-}
+const sortBy = reactive({ type: 0, order: 'descending' });
+const id = ref(route.params.id);
+
+const sortTypes = [
+	{
+		name: 'Date',
+		functions: {
+			ascending: (a, b) => a.date - b.date,
+			descending: (a, b) => b.date - a.date
+		}
+	},
+	{
+		name: 'Name',
+		functions: {
+			ascending: (a, b) => a.title - b.title,
+			descending: (a, b) => b.title - a.title
+		}
+	}
+];
+
+const data = computed(() =>
+		parsedPosts.slice()[id.value-1]
+);
+const posts = computed(() =>
+		parsedPosts.slice()[id.value-1].posts.sort(sortTypes[sortBy.type].functions[sortBy.order])
+);
+
+
 onBeforeRouteUpdate((to, from) => {
 	if (to.params.id !== from.params.id && typeof to.params.id === 'number') {
-		console.log(to.params.id)
-		fetchData(to.params.id);
+		id.value = to.params.id
 	}
-})
+});
 </script>
 
 <style scoped>

@@ -6,7 +6,8 @@ module.exports = {
   ],
   theme: {
       fontFamily: {
-          sans: ["Roboto Slab", "sans-serif"]
+          sans: ["Roboto Slab", "sans-serif"],
+          mono: ["Roboto Mono", "monospace"]
       },
       extend: {
           height: {

@@ -1,36 +1,38 @@
 <template>
-<div class="border border-slate-300 bg-slate-500 w-full">
+<div class="border border-slate-300 bg-slate-500/60 w-full text-sm">
 	<table class="table-auto border-collapse w-full">
 		<thead class="text-left">
-			<tr class="border border-slate-700">
-				<th class="px-2 w-8 border border-slate-700">ID</th>
-				<th class="px-2 border border-slate-700">Name</th>
-				<th class="px-2 border border-slate-700">Topic</th>
-				<th class="px-2 border border-slate-700">Link</th>
-				<th class="px-2 border border-slate-700">Date</th>
+			<tr class="border border-slate-700 bg-sky-300/20">
+				<TableHeader v-for="header in tableHeaders" :text="header.title" :class="header.class"></TableHeader>
 			</tr>
 		</thead>
 		<tbody>
-			<tr v-for="post in postsList" :key="post.globalId" class="group">
-				<td class="px-2 text-right border border-slate-700">
+			<tr v-for="post in postsList" :key="post.globalId" class="group even:bg-slate-500/80">
+				<TableCell class="text-right font-mono">
 					{{post.globalId}}
-				</td>
-				<td class="px-2 border border-slate-700">
-					{{post.title}}
-				</td>
-				<td class="px-2 border border-slate-700">
+				</TableCell>
+				<TableCell>
+					<Popper class="w-full" offset-distance="2">
+						<button class="w-full transition text-left underline decoration-1 underline-offset-2 decoration-dashed hover:text-slate-800">{{post.title}}</button>
+						<template #content>
+							<img class="w-48 h-60 rounded-sm" :alt="post?.alt ?? post.title" ref="image" :src="getImagePath(post.source)">
+						</template>
+					</Popper>
+
+				</TableCell>
+				<TableCell>
 					<router-link class="transition underline underline-offset-2 hover:text-slate-800" :to="`/topic/${post.topicID}`">
 						{{post.topic}}
 					</router-link>
-				</td>
-				<td class="px-2 border border-slate-700">
+				</TableCell>
+				<TableCell>
 					<a class="transition underline underline-offset-2 hover:text-slate-800" :href="post.link" target="_blank">
 						{{prettifyURL(post.link)}}
 					</a>
-				</td>
-				<td class="px-2 border border-slate-700">
+				</TableCell>
+				<TableCell class="font-mono">
 					{{objectToDate(post.date)}}
-				</td>
+				</TableCell>
 			</tr>
 		</tbody>
 	</table>
@@ -38,13 +40,25 @@
 </template>
 
 <script setup>
-import { getPostsList, objectToDate, prettifyURL } from "@/js/utils";
+import { getPostsList, objectToDate, prettifyURL, getImagePath } from "@/js/utils";
 import parsedPosts from "@/js/parse";
+import TableHeader from "@/components/home/list/tableHeader.vue";
+import TableCell from "@/components/home/list/tableCell.vue";
 
-const postsList = getPostsList(parsedPosts);
+const tableHeaders = [
+	{ title: 'ID', class: 'w-12' },
+	{ title: 'Name' },
+	{ title: 'Topic' },
+	{ title: 'Link' },
+	{ title: 'Date' }
+]
+
+const postsList = getPostsList(parsedPosts).sort((a, b) => a.globalId - b.globalId);
 
 </script>
 
 <style scoped>
-
+:deep(.popper) {
+	@apply bg-slate-800/20 p-3 backdrop-blur-sm hover:bg-slate-800/20 rounded-md border-2 border-slate-200;
+}
 </style>

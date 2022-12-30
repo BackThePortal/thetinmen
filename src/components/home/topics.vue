@@ -22,9 +22,8 @@
 
 <script setup>
 import Topic from './topics/topic.vue';
-import Posts from '@/../posts.json';
 
-import {computed, reactive} from 'vue'
+import {computed, reactive} from 'vue';
 import parsedPosts from "@/js/parse";
 
 const sortTypes = [
@@ -39,7 +38,7 @@ const sortTypes = [
 		name: 'Topic name',
 		functions: {
 			ascending: (a, b) => a.name.localeCompare(b.name),
-			descending: (a, b) => !a.name.localeCompare(b.name),
+			descending: (a, b) => b.name.localeCompare(a.name),
 		}
 	},
 	{
@@ -51,7 +50,7 @@ const sortTypes = [
 	}
 ]
 
-const sortBy = reactive({ type: 2, order: 'descending'});
+const sortBy = reactive({ type: 0, order: 'descending' });
 
 function cycleSort() {
 	if (sortBy.type === sortTypes.length-1) {
@@ -64,7 +63,7 @@ function cycleSort() {
 // Do NOT touch this
 const sortedPosts = computed(() =>
 	parsedPosts.slice().sort(sortTypes[sortBy.type].functions[sortBy.order])
-)
+);
 </script>
 
 <style scoped>

@@ -1,7 +1,7 @@
 <template>
 	<div class="transition duration-500 relative group overflow-hidden rounded-lg border-2 border-transparent hover:border-slate-300 hover:scale-105">
 		<div>
-			<img :alt="data?.alt ?? data.title" ref="image" :src="getImagePath(data.source)" class="select-none z-0 transition duration-500 rounded-lg w-32 h-40 sm:w-48 sm:h-60 md:w-64 md:h-80 xl:w-96 xl:h-120 shadow-md  group-hover:brightness-50 group-hover:blur-md group-hover:saturate-50">
+			<img :alt="data?.alt ?? data.title" ref="image" :src="getImagePath(data.source)" class="select-none z-0 transition duration-500 rounded-lg w-32 h-40 sm:w-48 sm:h-60 md:w-64 md:h-80 xl:w-96 xl:h-120 shadow-md  group-hover:brightness-50 contrast-more:group-hover:brightness-[.15] group-hover:blur-md group-hover:saturate-50">
 			<div class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-1/2 font-semibold px-3 w-32 sm:w-48 md:w-64 xl:w-96 text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl z-50 text-slate-200 opacity-0 sm:group-hover:opacity-80">
 				<span class="font-light">{{objectToDate(data.date)}}</span>
 				<br>

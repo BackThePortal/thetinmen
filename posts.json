@@ -29,12 +29,6 @@
     "description": "Radical feminism often argues that we live in a patriarchal society; that the world was made by and for men. But, is this completely true? In these posts, TheTinMen talks about in-group biases and discriminations against men that prove that the patriarchy ideology is false.",
     "posts": [
       {
-        "title": "Monolithic tyrannical oppressor class",
-        "source": 4,
-        "link": "https://www.instagram.com/p/CYL5C1MuF07/",
-        "date": "01/01/2022"
-      },
-      {
         "title": "The patriarchy problem: Do men really like men?",
         "source": 5,
         "link": "https://www.instagram.com/p/CfgZIKMth_S/",
@@ -64,6 +58,12 @@
         "source": 10,
         "link": "https://www.instagram.com/p/CYEI7IEtTCy/",
         "date": "29/12/2021"
+      },
+      {
+        "title": "The patriarchy illusion",
+        "source": 62,
+        "link": "https://www.instagram.com/p/CiNkYUEtIC0/",
+        "date": "07/09/2022"
       }
     ]
   },
@@ -129,6 +129,34 @@
         "source": 56,
         "link": "https://www.instagram.com/p/Ci-FQW1tudd/",
         "date": "26/09/2022"
+      }
+    ]
+  },
+  {
+    "name": "Men's health",
+    "posts": [
+      {
+        "title": "Andrology",
+        "source": 61,
+        "link": "https://www.instagram.com/p/CiSzIapNwYI/",
+        "date": "09/09/2022"
+      }
+    ]
+  },
+  {
+    "name": "Toxic masculinity",
+    "posts": [
+      {
+        "title": "Why I think you should stop saying \"toxic masculinity\"",
+        "source": 57,
+        "link": "https://www.instagram.com/p/CmWkz_uNJIC/",
+        "date": "19/12/2022"
+      },
+      {
+        "title": "Thoughts on toxic masculinity",
+        "source": 1,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/",
+        "date": "28/04/2022"
       }
     ]
   },
@@ -301,6 +329,17 @@
     ]
   },
   {
+    "name": "Male privilege",
+    "posts": [
+      {
+        "title": "\"You've ruled the world for thousands of years!\"",
+        "source": 58,
+        "link": "https://www.instagram.com/p/Ckax-VZtH-z/",
+        "date": "01/11/2022"
+      }
+    ]
+  },
+  {
     "name": "Men's rights activism",
     "description": "",
     "posts": [
@@ -409,6 +448,23 @@
     ]
   },
   {
+    "name": "Homelessness",
+    "posts": [
+      {
+        "title": "The male advantage",
+        "source": 59,
+        "link": "https://www.instagram.com/p/CjIWRqKtsbq/",
+        "date": "30/09/2022"
+      },
+      {
+        "title": "Monolithic tyrannical oppressor class",
+        "source": 4,
+        "link": "https://www.instagram.com/p/CYL5C1MuF07/",
+        "date": "01/01/2022"
+      }
+    ]
+  },
+  {
     "name": "Philosophy of debate",
     "posts": [
       {
@@ -416,6 +472,12 @@
         "source": 54,
         "link": "https://www.instagram.com/p/CkieFQoNSOY/",
         "date": "04/11/2022"
+      },
+      {
+        "title": "\"What about?\"",
+        "source": 60,
+        "link": "https://www.instagram.com/p/Cl3uHFqNgXY/",
+        "date": "07/12/2022"
       }
     ]
   }

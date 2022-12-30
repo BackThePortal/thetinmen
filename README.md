@@ -5,7 +5,8 @@
     * [Extending posts and topics](#extending-posts-and-topics)
       * [Adding a post](#adding-a-post)
       * [Adding a new topic](#adding-a-new-topic)
-      * [Handling errors](#handling-errors)
+      * [Checking errors](#checking-errors)
+      * [Contribution guide](#contribution-guide)
 <!-- TOC -->
 
 # TheTinMen Posts Classifier
@@ -43,35 +44,40 @@ This section is for people interested in contributing to the project.
 
 ### Extending posts and topics
 
-To make adding content to the website as easy as possible (both for myself and possible contributors), I created an 
-API that reads a JSON file called [posts.json](posts.json) that contains all the necessary information. This is how 
+To make adding content to the website as easy as possible, I created an 
+API that reads a JSON file called [posts.json](posts.json) that contains all the necessary information. This file is 
+probably the only thing you'll need to change if you want to contribute. 
+This is how 
 it looks:
 
 ````json
 [
-	{
-		"name": "Name of the topic 1",
-		"description": "A brief text summarizing the topic",
-		"posts": [
-			{
-				"title": "Thoughts on Patriarchy",
-				"source": 1,
-				"link": "https://www.instagram.com/p/CjBEtjmNdu9/"
-			},
-			{
-				"title": "Thoughts on Toxic Masculinity",
-				"source": 2,
-				"link": "https://www.instagram.com/p/Cc5E-QutuFo/"
-			}
-		]
-	}
+  {
+    "name": "Name of the topic 1",
+    "description": "A brief text summarizing the topic",
+    "posts": [
+      {
+        "title": "Thoughts on Patriarchy",
+        "source": 1,
+        "link": "https://www.instagram.com/p/CjBEtjmNdu9/",
+        "date": "01/12/2020"
+      },
+      {
+        "title": "Thoughts on Toxic Masculinity",
+        "source": 2,
+        "link": "https://www.instagram.com/p/Cc5E-QutuFo/",
+        "date": "01/12/2020"
+      }
+    ]
+  }
   ...
 ]
 ````
 
-Please read the contribution guide to learn how to add data to this file.
+Please read the contribution guide to learn how to add data to this file. This is just a summary.
+
 #### Adding a post
-Adding a new post to a topic is as simple as moving the image file of the thumbnail to the [posts](posts) folder and 
+Adding a new post to a topic is as simple as moving the image file of the thumbnail to the [posts](public/posts) folder and 
 then adding an object
 to the posts array. The post object supports many properties, but you'll want to specify at least `"title"`, `"source"` and `"link"`. See the API reference for the full list.
 
@@ -81,6 +87,7 @@ The image filename must be `{NUMBER}.jpg`. The `"source"` key refers to the numb
 Add a new object to the root array and declare the properties `"name"`, `"description"` and `"posts"`. See the API reference for the full list of properties.
 
 #### Checking errors
-The JSON structure can be checked using `npm run test`. If anything's wrong, an error will be thrown.
+For now, tests only check basic type errors. I'm working on more testing capabilities.
 
+Use the command `vitest` to run the available tests. You can use `vitest --ui` to receive a good-looking report.
 #### Contribution guide

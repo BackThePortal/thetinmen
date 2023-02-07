@@ -7,7 +7,7 @@
  * @returns {string} - Path to the image.
  */
 export function getImagePath(id) {
-    return `/${id}.jpg`;
+    return `/thetinmen/${id}.jpg`;
 }
 
 // Data management

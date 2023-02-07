@@ -40,7 +40,7 @@ const routes = [
 ]
 
 const router = createRouter({
-	history: createWebHistory(),
+	history: createWebHistory('/thetinmen/'),
 	routes,
 	scrollBehavior (to) {
 		if (to.path.includes('topic/')) {

@@ -3,10 +3,3 @@
 <span>This feature is being developed.</span>
 </div>
 </template>
-
-<script setup>
-</script>
-
-<style scoped>
-
-</style>

@@ -40,6 +40,9 @@ to see the website.
 - You can also use `npm run dev -- --host` so everyone in your network can see the website. They'll have to use a
   different link, though. It will appear next to *Network*.
 ## Development
+```
+This section isn't finished. It may contain unaccurate data.
+```
 This section is for people interested in contributing to the project.
 
 ### Extending posts and topics

@@ -7,7 +7,7 @@
  * @returns {string} - Path to the image.
  */
 export function getImagePath(id) {
-    return `{{ "${id}.jpg" | prepend: site.baseurl }}`;
+    return `/thetinmen/${id}.jpg`;
 }
 
 // Data management

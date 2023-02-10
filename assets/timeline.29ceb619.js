@@ -1,1 +1,0 @@
-import{_ as e,o as s,d as t,e as n}from"./index.0bd4c742.js";const o={},c=n("span",null,"This feature is being developed.",-1),a=[c];function r(_,i){return s(),t("div",null,a)}const l=e(o,[["render",r]]);export{l as default};

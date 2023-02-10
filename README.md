@@ -1,3 +1,4 @@
+[![Deploy](https://github.com/BackThePortal/thetinmen/actions/workflows/deploy.yml/badge.svg)](https://github.com/BackThePortal/thetinmen/actions/workflows/deploy.yml)
 <!-- TOC -->
 * [TheTinMen Posts Classifier](#thetinmen-posts-classifier)
   * [Installation](#installation)

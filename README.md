@@ -1,4 +1,10 @@
-[![Deploy](https://github.com/BackThePortal/thetinmen/actions/workflows/deploy.yml/badge.svg)](https://github.com/BackThePortal/thetinmen/actions/workflows/deploy.yml)
+<p align="center">
+<a href="https://github.com/BackThePortal/thetinmen/actions/workflows/deploy.yml"><img src="https://github.com/BackThePortal/thetinmen/actions/workflows/deploy.yml/badge.svg"/></a>
+<a href="https://github.com/BackThePortal/thetinmen/releases"><img src="https://img.shields.io/github/v/release/backtheportal/thetinmen?logo=github&style=plastic"/></a>
+<a href="https://github.com/BackThePortal/thetinmen/releases"><img src="https://img.shields.io/github/v/release/backtheportal/thetinmen?logo=github&style=plastic&include_prereleases"/></a>
+</p>
+
+
 <!-- TOC -->
 * [TheTinMen Posts Classifier](#thetinmen-posts-classifier)
   * [Installation](#installation)

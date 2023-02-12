@@ -1,5 +1,5 @@
 <template>
-	<th class="transition select-none px-2 hover:bg-sky-400/60 border border-slate-700">
+	<th class="transition select-none px-2 border border-slate-700">
 		{{ props.text }}
 	</th>
 </template>

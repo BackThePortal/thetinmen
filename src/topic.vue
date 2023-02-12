@@ -9,9 +9,9 @@
 			<p class="text-center text-slate-700 mt-4">
 				Sorted by
 				<span class="">Date</span>,
-				<span @click="sortBy.order = sortBy.order === 'ascending' ? 'descending' : 'ascending'" class="action-link">
+				<button @click="sortBy.order = sortBy.order === 'ascending' ? 'descending' : 'ascending'" class="action-link">
 					{{ sortBy.order.replace(/(^\w|\s\w)/g, a => a.toUpperCase()) }}
-				</span>
+				</button>
 			</p>
 			<div class="flex flex-row flex-wrap gap-4 select-none justify-center my-4">
 				<Post v-for="post in posts" :id="post.id" :data="post" :key="post.id"></Post>

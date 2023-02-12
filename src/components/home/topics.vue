@@ -3,12 +3,12 @@
 		<div class="text-center space-x-2 mb-8">
 			<p class="text-slate-700" @click="">
 				Sort by
-							<span @click="cycleSort()" class="action-link">
+							<button href="" @click="cycleSort()" class="action-link">
 								{{ sortTypes[sortBy.type].name }}
-							</span>,
-							<span @click="sortBy.order = sortBy.order === 'ascending' ? 'descending' : 'ascending'" class="action-link">
+							</button>,
+							<button @click="sortBy.order = sortBy.order === 'ascending' ? 'descending' : 'ascending'" class="action-link">
 								{{ sortBy.order.replace(/(^\w|\s\w)/g, a => a.toUpperCase()) }}
-							</span>
+							</button>
 			</p>
 
 		</div>

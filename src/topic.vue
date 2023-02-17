@@ -7,14 +7,15 @@
 			<h2 class="font-bold border-b border-slate-300 mb-1">{{data.name}}</h2>
 			<p v-if="data.description !== '' && data.description" class="font-normal border-b border-slate-300 pb-1">{{data.description}}</p>
 			<p class="text-center text-slate-700 mt-4">
-				Sorted by
+				{{ hoverPost }} Sorted by
 				<span class="">Date</span>,
 				<button @click="sortBy.order = sortBy.order === 'ascending' ? 'descending' : 'ascending'" class="action-link">
 					{{ sortBy.order.replace(/(^\w|\s\w)/g, a => a.toUpperCase()) }}
 				</button>
 			</p>
+
 			<div class="flex flex-row flex-wrap gap-4 select-none justify-center my-4">
-				<Post v-for="post in posts" :id="post.id" :data="post" :key="post.id"></Post>
+				<Post @mouseover="setHover(true, post.id)" @mousemove="setHover()" @mouseleave="setHover()" v-for="post in posts" :id="post.id" :data="post" :key="post.id"></Post>
 			</div>
 
 		</div>
@@ -32,6 +33,19 @@ const route = useRoute();
 
 const sortBy = reactive({ type: 0, order: 'descending' });
 const id = ref(route.params.id);
+
+const hoverPost = ref(null);
+
+function setHover(state = false, id) {
+	if (state) {
+		let el = document.activeElement;
+		el.blur();
+		hoverPost.value = id;
+	} else {
+		hoverPost.value = null
+	}
+
+}
 
 const sortTypes = [
 	{

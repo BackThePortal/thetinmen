@@ -16,12 +16,12 @@ const routes = [
 			{
 				path: 'topics',
 				name: 'Topics',
-				component: () => import('@/components/home/topics.vue')
+				component: () => import('@/components/home/topics/index.vue')
 			},
 			{
 				path: 'list',
 				name: 'List',
-				component: () => import('@/components/home/list.vue'),
+				component: () => import('@/components/home/list/index.vue'),
 			},
 			{
 				path: 'timeline',

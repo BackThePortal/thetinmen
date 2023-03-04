@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import Topic from './topics/topic.vue';
+import Topic from './topic.vue';
 
 import {computed, reactive} from 'vue';
 import parsedPosts from "@/js/parse";

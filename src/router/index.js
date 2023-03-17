@@ -28,6 +28,11 @@ const routes = [
 				name: 'Timeline',
 				component: () => import('@/components/home/timeline.vue')
 			},
+			{
+				path: 'search',
+				name: 'Search',
+				component: () => import('@/components/home/search.vue')
+			},
 		]
 	},
 	{

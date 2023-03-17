@@ -15,7 +15,7 @@
 					<Popper class="w-full" offset-distance="2">
 						<button class="w-full transition text-left underline decoration-1 underline-offset-2 decoration-dashed hover:text-slate-800">{{post.title}}</button>
 						<template #content>
-							<img class="w-48 h-60 rounded-sm" :alt="post?.alt ?? post.title" ref="image" :src="getImagePath(post.source)">
+							<img class="transition w-48 h-60 rounded-sm opacity-80 hover:brightness-105 hover:opacity-100" :alt="post?.alt ?? post.title" ref="image" :src="getImagePath(post.source)">
 						</template>
 					</Popper>
 

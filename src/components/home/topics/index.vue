@@ -13,8 +13,19 @@
 
 		</div>
 
-		<article class="flex flex-wrap gap-5 justify-center w-full">
-			<Topic v-for="topic in sortedPosts" :data="topic" :id="topic.id" :key="topic.id" />
+		<article>
+			<div class="flex place-items-center">
+				<h3 class="w-fit">Special categories</h3>
+				<hr class="basis-full"/>
+			</div>
+
+		</article>
+		<article>
+			<h3>Topics</h3>
+			<div class="flex flex-wrap gap-5 justify-center w-full">
+				<Topic v-for="topic in sortedPosts" :data="topic" :id="topic.id" :key="topic.id" />
+			</div>
+
 		</article>
 	</div>
 

@@ -43,9 +43,10 @@ export function dateToObject(date) {
 /**
  * Converts JavaScript Date object to DD/MM/YY.
  * @param {Date} date - Date object to convert.
- * @returns {string} - Date in DD/MM/YYYY.
+ * @returns {string|null} - Date in DD/MM/YYYY.
  */
 export function objectToDate(date = new Date) {
+    if (date === "") return null;
     let month = String(date.getMonth() + 1);
     let day = String(date.getDate());
     const year = String(date.getFullYear());

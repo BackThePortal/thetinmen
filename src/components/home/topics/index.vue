@@ -1,27 +1,28 @@
 <template>
 	<div>
 		<div class="text-center space-x-2 mb-8">
-			<p class="text-slate-700" @click="">
+			<span class="text-slate-700 dark:text-slate-300" @click="">
 				Sort by
-							<button href="" @click="cycleSort()" class="action-link">
+							<button @click="cycleSort()" class="action-link">
 								{{ sortTypes[sortBy.type].name }}
 							</button>,
 							<button @click="sortBy.order = sortBy.order === 'ascending' ? 'descending' : 'ascending'" class="action-link">
 								{{ sortBy.order.replace(/(^\w|\s\w)/g, a => a.toUpperCase()) }}
 							</button>
-			</p>
+			</span>
 
 		</div>
-
 		<article>
-			<div class="flex place-items-center">
-				<h3 class="w-fit">Special categories</h3>
-				<hr class="basis-full"/>
+			<div class="flex place-items-center gap-2 px-2 rounded-xl mb-8 select-none">
+				<h3 class="text-lg shrink text-black dark:text-white">Special categories</h3>
+				<hr class="grow border-black dark:border-white"/>
 			</div>
-
 		</article>
 		<article>
-			<h3>Topics</h3>
+			<div class="flex place-items-center gap-2 px-2 rounded-xl mb-8 select-none">
+				<h3 class="text-lg shrink text-black dark:text-white">Topics</h3>
+				<hr class="grow border-black dark:border-white"/>
+			</div>
 			<div class="flex flex-wrap gap-5 justify-center w-full">
 				<Topic v-for="topic in sortedPosts" :data="topic" :id="topic.id" :key="topic.id" />
 			</div>
@@ -33,6 +34,7 @@
 
 <script setup>
 import Topic from './topic.vue';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 
 import {computed, reactive} from 'vue';
 import parsedPosts from "@/js/parse";
@@ -71,7 +73,6 @@ function cycleSort() {
 	}
 }
 
-// Do NOT touch this
 const sortedPosts = computed(() =>
 	parsedPosts.slice().sort(sortTypes[sortBy.type].functions[sortBy.order])
 );

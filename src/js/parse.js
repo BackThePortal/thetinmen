@@ -4,6 +4,7 @@ import { dateToObject } from "@/js/utils";
 // Add ID to topics
 let parsedPosts = Posts.slice().map((topic, index) => ({ ...topic, id: index+1 }));
 console.log(parsedPosts)
+
 // Add IDs to posts, convert dates to Date object and add last updated property
 let i = 1;
 parsedPosts.map((topic) => {

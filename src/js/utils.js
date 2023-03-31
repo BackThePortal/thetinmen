@@ -46,7 +46,7 @@ export function dateToObject(date) {
  * @returns {string|null} - Date in DD/MM/YYYY.
  */
 export function objectToDate(date = new Date) {
-    if (date === "") return null;
+    if (date === "" || date === null) return null;
     let month = String(date.getMonth() + 1);
     let day = String(date.getDate());
     const year = String(date.getFullYear());

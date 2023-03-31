@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<div class="mt-12 mb-4 w-full text-center">
-			<router-link to="/home/topics" class="btn-slate">&larr; Back to topics</router-link>
+			<router-link to="/home/topics" class="btn-slate"
+				>&larr; Back to topics</router-link
+			>
 		</div>
 		<div class="container mx-auto border border-slate-300 rounded-2xl p-3">
 			<h2
@@ -29,20 +31,29 @@
 				</button>
 			</p>
 
-			<div class="flex flex-row flex-wrap gap-4 select-none justify-center my-4">
-				<Post @mouseover="setHover(true, post.id)" @mousemove="setHover()" @mouseleave="setHover()" v-for="post in posts" :id="post.id" :data="post" :key="post.id"></Post>
+			<div
+				class="flex flex-row flex-wrap gap-4 select-none justify-center my-4"
+			>
+				<Post
+					@mouseover="setHover(true, post.id)"
+					@mousemove="setHover()"
+					@mouseleave="setHover()"
+					v-for="post in posts"
+					:id="post.id"
+					:data="post"
+					:key="post.id"
+				></Post>
 			</div>
-
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { computed, reactive, ref } from "vue";
-import {onBeforeRouteUpdate, useRoute} from "vue-router";
-import Post from "@/components/post.vue";
+import { computed, reactive, ref } from 'vue';
+import { onBeforeRouteUpdate, useRoute } from 'vue-router';
+import Post from '@/components/post.vue';
 
-import parsedPosts from "@/js/parse";
+import parsedPosts from '@/js/parse';
 
 const route = useRoute();
 
@@ -57,9 +68,8 @@ function setHover(state = false, id) {
 		el.blur();
 		hoverPost.value = id;
 	} else {
-		hoverPost.value = null
+		hoverPost.value = null;
 	}
-
 }
 
 const sortTypes = [
@@ -67,33 +77,31 @@ const sortTypes = [
 		name: 'Date',
 		functions: {
 			ascending: (a, b) => a.date - b.date,
-			descending: (a, b) => b.date - a.date
-		}
+			descending: (a, b) => b.date - a.date,
+		},
 	},
 	{
 		name: 'Name',
 		functions: {
 			ascending: (a, b) => a.title - b.title,
-			descending: (a, b) => b.title - a.title
-		}
-	}
+			descending: (a, b) => b.title - a.title,
+		},
+	},
 ];
 
-const data = computed(() =>
-		parsedPosts.slice()[id.value-1]
-);
+const data = computed(() => parsedPosts.slice()[id.value - 1]);
 const posts = computed(() =>
-		parsedPosts.slice()[id.value-1].posts.sort(sortTypes[sortBy.type].functions[sortBy.order])
+	parsedPosts
+		.slice()
+		[id.value - 1].posts.sort(sortTypes[sortBy.type].functions[sortBy.order])
 );
-
 
 onBeforeRouteUpdate((to, from) => {
+	console.log(from);
 	if (to.params.id !== from.params.id && typeof to.params.id === 'number') {
-		id.value = to.params.id
+		id.value = to.params.id;
 	}
 });
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

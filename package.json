@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "dev expose": "vite --host",
     "build": "vite build",
     "test": "vitest",
     "test ui": "vitest --ui"

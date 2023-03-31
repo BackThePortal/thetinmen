@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import './js/theme.js'
 
 import Popper from "vue3-popper";
 

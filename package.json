@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/tailwindcss": "^0.1.2",
     "@headlessui/vue": "^1.7.12",
+    "prettier": "^2.8.7",
     "vue": "^3.2.37",
     "vue-router": "^4.1.6",
     "vue3-popper": "^1.5.0"

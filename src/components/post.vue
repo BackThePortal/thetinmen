@@ -19,7 +19,7 @@
 				<span>{{ data.title }}</span>
 			</div>
 			<div
-				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-0 max-md:bg-gray-600/30 max-md:backdrop-blur-xl sm:bottom-1/2 text-sm sm:text-xs md:text-sm lg:text-base sm:translate-y-16 max-md:w-full md:w-64 xl:w-96 text-center z-50 sm:opacity-0 sm:group-hover:opacity-80 flex flex-col items-center align-bottom sm:align-top content-start gap-1"
+				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-0 max-sm:bg-gray-600/30 max-sm:backdrop-blur-xl sm:bottom-1/2 text-sm sm:text-xs md:text-sm lg:text-base sm:translate-y-16 max-sm:w-full sm:w-48 md:w-64 xl:w-96 text-center z-50 sm:opacity-0 sm:group-hover:opacity-80 flex flex-col items-center align-bottom sm:align-top content-start gap-1"
 			>
 				<a
 					v-if="data.link"
@@ -33,7 +33,7 @@
 					v-if="data.blog"
 					:href="data.blog"
 					target="_blank"
-					class="link max-md:hidden"
+					class="link max-sm:hidden"
 					>See blog entry</a
 				>
 			</div>
@@ -55,6 +55,6 @@ function handleShiftClick(e) {
 
 <style scoped>
 .link {
-	@apply transition-all text-slate-100 sm:text-slate-200 sm:hover:font-semibold underline underline-offset-2 sm:hover:decoration-2 max-md:active:decoration-2 sm:hover:bg-slate-300/30 backdrop-brightness-100 max-md:active:backdrop-brightness-125 max-md:w-full sm:active:bg-slate-300/60 pb-1 px-2 sm:rounded w-fit;
+	@apply transition-all text-slate-100 sm:text-slate-200 sm:hover:font-semibold underline underline-offset-2 sm:hover:decoration-2 max-md:active:decoration-2 sm:hover:bg-slate-300/30 backdrop-brightness-100 max-md:active:backdrop-brightness-125 max-sm:w-full sm:active:bg-slate-300/60 pb-1 px-2 sm:rounded w-fit;
 }
 </style>

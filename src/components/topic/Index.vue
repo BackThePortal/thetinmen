@@ -42,7 +42,6 @@
 			>
 				<Post
 					@mouseover="setHover(true, post.id)"
-					@mousemove="setHover()"
 					@mouseleave="setHover()"
 					v-for="post in posts"
 					:id="post.id"

@@ -1156,6 +1156,7 @@
 						"value": 85,
 						"description": "Men are $$ of homeless people",
 						"country": "UK",
+						"year": [2002, 2021],
 						"source": "https://tinyurl.com/mrybbpyc"
 					},
 					{
@@ -1163,13 +1164,15 @@
 						"value": 88,
 						"description": "Men are $$ of homeless deaths",
 						"country": "UK",
+						"year": 2020,
 						"source": "https://tinyurl.com/bd34hrsz"
 					},
 					{
 						"type": "percentage",
 						"value": 67,
-						"description": "Men are $$ of drugdeaths",
+						"description": "Men are $$ of drug deaths",
 						"country": "UK",
+						"year": [1993, 2021],
 						"source": "https://tinyurl.com/7r34ev4b"
 					},
 					{
@@ -1177,13 +1180,14 @@
 						"value": 96,
 						"description": "Men are $$ of prisoners",
 						"country": "UK",
-						"source": "https://tinyurl.com/bmncmtr"
+						"source": null
 					},
 					{
 						"type": "percentage",
 						"value": 74,
 						"description": "Men are $$ of suicides",
 						"country": "UK",
+						"year": 2021,
 						"source": "https://tinyurl.com/5946aryv"
 					},
 					{
@@ -1191,10 +1195,13 @@
 						"value": 1,
 						"description": "Men share $$ of abuse refuge beds",
 						"country": "UK",
+						"year": 2018,
 						"source": "https://tinyurl.com/fnck7x9k"
 					}
 				],
-				"source": 174
+				"source": 174,
+				"link": "https://www.instagram.com/p/CjF_rtqNXT5/",
+				"date": "29/09/2022"
 			},
 			{
 				"title": "The male advantage",

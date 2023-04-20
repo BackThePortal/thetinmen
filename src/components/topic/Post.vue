@@ -13,7 +13,7 @@
 				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-1/2 font-semibold px-3 w-32 sm:w-48 md:w-64 xl:w-96 text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl z-50 text-slate-200 opacity-0 sm:group-hover:opacity-80"
 			>
 				<span v-if="data.date" class="font-light">{{
-					objectToDate(data.date)
+					DateUtils.objectToDate(data.date)
 				}}</span>
 				<br />
 				<span>{{ data.title }}</span>
@@ -42,8 +42,11 @@
 </template>
 
 <script setup>
-import { getImagePath, objectToDate, prettifyURL } from '@/js/utils';
-import { ref } from 'vue';
+import { getImagePath, prettifyURL, DateUtils } from '@/js/utils';
+import { computed, reactive, ref } from 'vue';
+import { usePostsStore } from '@/stores/posts.js';
+
+const postsStore = usePostsStore();
 
 const props = defineProps(['data', 'id']);
 const link = ref(prettifyURL(props.data.link));

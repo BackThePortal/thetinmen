@@ -51,7 +51,7 @@
 						</a>
 					</TableCell>
 					<TableCell class="font-mono">
-						{{ objectToDate(post.date) }}
+						{{ DateUtils.objectToDate(post.date) }}
 					</TableCell>
 				</tr>
 			</tbody>

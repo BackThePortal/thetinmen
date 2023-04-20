@@ -40,8 +40,7 @@
 import { ref } from 'vue';
 import { getImagePath } from '@/js/utils';
 
-const props = defineProps(['data', 'id', 'small']);
-
+const props = defineProps(['data', 'small']);
 const thumbnail = ref(null);
 </script>
 

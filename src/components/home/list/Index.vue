@@ -57,6 +57,42 @@
 			</tbody>
 		</table>
 	</div>
+	<div>
+		<div class="my-2">
+			<h3 class="text-lg text-slate-800 dark:text-slate-200">
+				Download the data
+			</h3>
+			<div class="text-slate-700 dark:text-slate-300 space-y-2">
+				<p>
+					Here, you can download the raw data (also available in the repository)
+					and the parsed data. The provided JSON files are minified, since
+					they're obtained directly from the original code.
+				</p>
+				<p>
+					The raw data was typed manually and contains the basic data, such as
+					dates in simple format and text descriptions. The parsed data contains
+					other information which is generated on the fly for the website to
+					work, which includes diferent kinds of IDs, dates as JavaScript
+					objects, and other properties.
+				</p>
+				<p>
+					You'll want to get the raw data if you'd just like to browse the
+					database or if you want to process the data yourself; otherwise, if
+					you want to get all the information you can at once, get the parsed
+					data.
+				</p>
+			</div>
+		</div>
+		<div class="flex gap-2">
+			<button
+				v-for="button in downloads"
+				@click="downloadFile(button.blob, button.filename)"
+				class="btn-slate"
+			>
+				{{ button.title }}
+			</button>
+		</div>
+	</div>
 </template>
 
 <script setup>
@@ -78,9 +114,23 @@ const tableHeaders = [
 	{ title: 'Date' },
 ];
 
-const postsList = getPostsList(parsedPosts).sort(
-	(a, b) => a.globalId - b.globalId
-);
+const postsList = postsStore.getPostsList;
+
+const downloads = [
+	{
+		title: 'Raw data',
+		blob: new Blob([JSON.stringify(Posts)], { type: 'application/json' }),
+		filename: 'posts.json',
+	},
+	{
+		title: 'Parsed data',
+		blob: new Blob([JSON.stringify(postsList)], { type: 'application/json' }),
+		filename: 'parsedData.json',
+	},
+];
+function downloadFile(blob, filename) {
+	saveAs(blob, filename);
+}
 </script>
 
 <style scoped>

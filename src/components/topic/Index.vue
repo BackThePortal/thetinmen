@@ -15,7 +15,7 @@
 				v-if="topicData.description !== '' && topicData.description"
 				class="font-normal text-slate-800 dark:text-slate-200 border-b border-slate-300 pb-1"
 			>
-				{{ data.description }}
+				{{ topicData.description }}
 			</p>
 			<div class="flex justify-stretch items-center mt-2 mb-4 w-full px-4">
 				<div class="basis-full"></div>

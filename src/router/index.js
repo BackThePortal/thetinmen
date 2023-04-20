@@ -37,8 +37,18 @@ const routes = [
 	},
 	{
 		path: '/topic/:id',
-		name: 'Topic',
-		component: () => import('@/topic.vue')
+		children: [
+			{
+				path: '',
+				name: 'Topic',
+				component: () => import('!/topic/Index.vue'),
+			},
+			{
+				path: '/post/:id',
+				name: 'Post',
+				component: () => import('!/topic/post/Index.vue'),
+			},
+		],
 	},
 
 	...Redirects,

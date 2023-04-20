@@ -1,12 +1,12 @@
 <template>
 	<div
-		class="border border-slate-300 bg-slate-500/60 w-full text-sm overflow-x-auto inline-block whitespace-nowrap max-sm:text-sm"
+		class="border border-slate-300 bg-slate-500/60 dark:bg-slate-600/80 w-full text-sm overflow-x-auto inline-block whitespace-nowrap max-sm:text-sm"
 	>
 		<table class="table-auto border-collapse w-full">
-			<thead class="text-left">
-				<tr
-					class="border border-slate-700 bg-gradient-to-r from-theme-primary/10 to-theme-secondary/10"
-				>
+			<thead
+				class="text-left bg-gradient-to-r from-theme-primary to-theme-secondary"
+			>
+				<tr class="border border-slate-700">
 					<TableHeader
 						v-for="header in tableHeaders"
 						:text="header.title"
@@ -26,7 +26,7 @@
 					<TableCell>
 						<Popper class="w-full" offset-distance="2">
 							<button
-								class="w-full transition text-left underline decoration-1 underline-offset-2 decoration-dashed hover:text-slate-800 discreet-link"
+								class="w-full transition text-left underline decoration-1 underline-offset-2 decoration-dashed text-slate-900 dark:text-slate-300 hover:text-slate-800 discreet-link"
 							>
 								{{ post.title }}
 							</button>
@@ -41,12 +41,19 @@
 						</Popper>
 					</TableCell>
 					<TableCell>
-						<router-link class="discreet-link" :to="`/topic/${post.topicID}`">
+						<router-link
+							class="discreet-link text-slate-900 dark:text-slate-300"
+							:to="`/topic/${post.topicID}`"
+						>
 							{{ post.topic }}
 						</router-link>
 					</TableCell>
 					<TableCell>
-						<a class="discreet-link" :href="post.link" target="_blank">
+						<a
+							class="discreet-link text-slate-900 dark:text-slate-300"
+							:href="post.link"
+							target="_blank"
+						>
 							{{ prettifyURL(post.link) }}
 						</a>
 					</TableCell>

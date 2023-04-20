@@ -18,7 +18,7 @@
 				<tr
 					v-for="post in postsList"
 					:key="post.globalId"
-					class="group even:bg-slate-500/80"
+					class="group even:bg-slate-500/80 even:dark:bg-slate-500/80"
 				>
 					<TableCell class="text-right font-mono">
 						{{ post.globalId }}
@@ -103,15 +103,14 @@
 </template>
 
 <script setup>
-import {
-	getPostsList,
-	objectToDate,
-	prettifyURL,
-	getImagePath,
-} from '@/js/utils';
-import parsedPosts from '@/js/parse';
-import TableHeader from '@/components/home/list/tableHeader.vue';
-import TableCell from '@/components/home/list/tableCell.vue';
+import { saveAs } from 'file-saver';
+import Posts from '@/../posts.json';
+import { prettifyURL, getImagePath, DateUtils } from '@/js/utils';
+import TableHeader from '!/home/list/TableHeader.vue';
+import TableCell from '!/home/list/TableCell.vue';
+import { usePostsStore } from '@/stores/posts.js';
+
+const postsStore = usePostsStore();
 
 const tableHeaders = [
 	{ title: 'ID', class: 'w-12' },

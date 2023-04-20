@@ -45,7 +45,7 @@
 					@mouseleave="setHover()"
 					v-for="post in posts"
 					:id="post.id"
-					:data="post"
+					:topic="id"
 					:key="post.id"
 				></Post>
 			</div>
@@ -68,13 +68,21 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref } from 'vue';
-import { onBeforeRouteUpdate, useRoute } from 'vue-router';
-import Post from '@/components/post.vue';
-
-import parsedPosts from '@/js/parse';
+import {
+	computed,
+	onBeforeUpdate,
+	onMounted,
+	onUpdated,
+	reactive,
+	ref,
+	watch,
+} from 'vue';
+import { useRoute } from 'vue-router';
+import Post from './Post.vue';
+import { usePostsStore } from '@/stores/posts.js';
 
 const route = useRoute();
+const postsStore = usePostsStore();
 
 const sortConfig = reactive({ type: 0, order: 'descending' });
 const id = ref(route.params.id);

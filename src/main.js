@@ -1,13 +1,13 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import './js/theme.js'
 
-import Popper from "vue3-popper";
+import Popper from 'vue3-popper';
 
-import router from "@/router";
+import router from '@/router';
 
 import './css/main.css';
+import { createPinia } from 'pinia';
 
-createApp(App).use(router)
-	.component('Popper', Popper)
-	.mount('#app');
+const pinia = createPinia();
+
+createApp(App).use(pinia).use(router).component('Popper', Popper).mount('#app');

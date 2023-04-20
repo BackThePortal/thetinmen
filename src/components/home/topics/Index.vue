@@ -25,21 +25,26 @@
 </template>
 
 <script setup>
-import { computed, reactive, ref } from 'vue';
-import parsedPosts from '@/js/parse';
-import CategoryBlockTitle from './categoryBlockTitle.vue';
-import TopicsList from '@/components/home/topics/topicsList.vue';
+import { computed, reactive, ref, watch, watchEffect } from 'vue';
+import CategoryBlockTitle from './CategoryBlockTitle.vue';
+import { usePostsStore } from '@/stores/posts.js';
+import { useCategoriesShowStore } from '@/stores/categoriesShow.js';
+import { useRouter, useRoute } from 'vue-router';
+import Topic from '!/home/topics/Topic.vue';
+
+const postsStore = usePostsStore();
+const categoriesStore = useCategoriesShowStore();
+const router = useRouter();
+const route = useRoute();
 
 const categories = [
 	{
 		title: 'Special categories',
 		reference: 'special',
-		shown: ref(true),
 	},
 	{
 		title: 'Topics',
 		reference: 'normal',
-		shown: ref(true),
 	},
 ];
 
@@ -127,13 +132,15 @@ function cycleSort() {
 }
 
 const sortedTopics = computed(() =>
-	parsedPosts.slice().sort(sortTypes.getSort(sortConfig))
+	postsStore.getParsedData.slice().sort(sortTypes.getSort(sortConfig))
 );
 
-const posts = {
-	normal: sortedTopics.value.filter((topic) => !topic.special),
-	special: sortedTopics.value.filter((topic) => topic.special),
-};
+const posts = computed(() => {
+	return {
+		normal: sortedTopics.value.filter((topic) => !topic.special),
+		special: sortedTopics.value.filter((topic) => topic.special),
+	};
+});
 </script>
 <style scoped>
 .v-enter-active,

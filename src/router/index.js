@@ -1,12 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Redirects from "@/router/redirects";
+import Redirects from '@/router/redirects';
 
 const routes = [
 	// Pages
 	{
 		path: '/home',
 		name: 'Home',
-		component: () => import('@/home.vue'),
+		component: () => import('!/home/Index.vue'),
 		children: [
 			{
 				path: '',
@@ -16,24 +16,24 @@ const routes = [
 			{
 				path: 'topics',
 				name: 'Topics',
-				component: () => import('@/components/home/topics/index.vue')
+				component: () => import('!/home/topics/Index.vue'),
 			},
 			{
 				path: 'list',
 				name: 'List',
-				component: () => import('@/components/home/list/index.vue'),
+				component: () => import('!/home/list/Index.vue'),
 			},
 			{
 				path: 'timeline',
 				name: 'Timeline',
-				component: () => import('@/components/home/timeline.vue')
+				component: () => import('!/home/timeline/Index.vue'),
 			},
 			{
 				path: 'search',
 				name: 'Search',
-				component: () => import('@/components/home/search.vue')
+				component: () => import('!/home/search/Index.vue'),
 			},
-		]
+		],
 	},
 	{
 		path: '/topic/:id',
@@ -41,8 +41,8 @@ const routes = [
 		component: () => import('@/topic.vue')
 	},
 
-	...Redirects
-]
+	...Redirects,
+];
 
 const router = createRouter({
 	history: createWebHashHistory('/thetinmen/'),

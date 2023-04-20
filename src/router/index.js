@@ -57,13 +57,6 @@ const routes = [
 const router = createRouter({
 	history: createWebHashHistory('/thetinmen/'),
 	routes,
-	scrollBehavior (to) {
-		if (to.path.includes('topic/')) {
-			return { top: 0 }
-		} else {
-			return false;
-		}
-	}
 });
 
 export default router;

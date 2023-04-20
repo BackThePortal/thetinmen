@@ -60,6 +60,11 @@
 				</button>
 			</div>
 		</div>
+		<p
+			class="text-sm text-center mx-5 py-4 mb-4 border-b border-slate-300 text-slate-800 dark:text-slate-200"
+		>
+			<b>Tip</b>: Shift-click a post link to copy it to the clipboard.
+		</p>
 	</div>
 </template>
 

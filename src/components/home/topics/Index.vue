@@ -18,8 +18,22 @@
 			</span>
 		</div>
 		<article v-for="category in categories">
-			<CategoryBlockTitle :title="category.title" v-model="category.shown" />
-			<TopicsList :topics="posts[category.reference]" />
+			<CategoryBlockTitle
+				:title="category.title"
+				:reference="category.reference"
+			/>
+			<Transition>
+				<div
+					v-if="categoriesStore.getData[category.reference]"
+					class="flex flex-wrap gap-5 w-full mt-4 mb-8 justify-center"
+				>
+					<Topic
+						v-for="topic in posts[category.reference]"
+						:data="topic"
+						:key="topic.id"
+					/>
+				</div>
+			</Transition>
 		</article>
 	</div>
 </template>

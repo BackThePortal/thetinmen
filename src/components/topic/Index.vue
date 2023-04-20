@@ -1,11 +1,13 @@
 <template>
 	<div>
-		<div class="mt-12 mb-4 w-full text-center">
+		<div class="my-4 w-full text-center">
 			<router-link to="/home/topics" class="btn-slate"
 				>&larr; Back to topics</router-link
 			>
 		</div>
-		<div class="container mx-auto border border-slate-300 rounded-2xl p-3">
+		<div
+			class="container mx-auto bg-slate-300/30 dark:bg-slate-600/60 rounded-2xl p-4"
+		>
 			<h2
 				class="font-bold border-b border-slate-300 mb-1 text-black dark:text-slate-100"
 			>
@@ -37,9 +39,7 @@
 				<div class="basis-full"></div>
 			</div>
 
-			<div
-				class="flex flex-row flex-wrap gap-4 select-none justify-center my-4"
-			>
+			<div class="flex flex-row flex-wrap gap-4 select-none justify-center m-4">
 				<Post
 					@mouseover="setHover(true, post.id)"
 					@mouseleave="setHover()"

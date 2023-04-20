@@ -30,7 +30,7 @@
 				ref="thumbnail"
 				:src="getImagePath(data?.thumbnail ?? data.posts[0].source)"
 				:class="[small ? 'w-32 h-40' : 'w-64 h-80']"
-				class="select-none rounded-lg transition duration-500 z-0 brightness-50 group-hover:brightness-90 blur-md group-hover:blur-none shadow-none group-hover:shadow-2xl shadow"
+				class="select-none rounded-lg transition duration-500 z-0 brightness-50 touch:saturate-50 not-touch:group-hover:brightness-90 blur-md touch:blur-sm not-touch:group-hover:blur-none shadow-none not-touch:group-hover:shadow-2xl shadow"
 			/>
 		</article>
 	</router-link>

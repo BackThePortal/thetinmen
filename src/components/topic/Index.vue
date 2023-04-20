@@ -9,13 +9,13 @@
 			class="container mx-auto bg-slate-300/30 dark:bg-slate-600/60 rounded-2xl p-4"
 		>
 			<h2
-				class="font-bold border-b border-slate-300 mb-1 text-black dark:text-slate-100"
+				class="font-bold border-b border-slate-600 dark:border-slate-200 mb-1 text-black dark:text-slate-100"
 			>
 				{{ topicData.name }}
 			</h2>
 			<p
 				v-if="topicData.description !== '' && topicData.description"
-				class="font-normal text-slate-800 dark:text-slate-200 border-b border-slate-300 pb-1"
+				class="font-normal text-slate-800 dark:text-slate-200 border-b border-slate-600 dark:border-slate-200 pb-1"
 			>
 				{{ topicData.description }}
 			</p>

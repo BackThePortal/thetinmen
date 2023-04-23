@@ -1190,7 +1190,14 @@
 				"title": "What I've learnt about sexism",
 				"source": 53,
 				"link": "https://www.instagram.com/p/ClQ2JbFtYwN/",
-				"date": "22/11/2022"
+				"date": "22/11/2022",
+				"quotes": [
+					{
+						"quote": "Men are treated as <b>competent but disposable</b>, women are treated as <b>incompotent but precious</b>.",
+						"slide": [[3, 4], 10],
+						"author": "TheTinMen"
+					}
+				]
 			}
 		]
 	},

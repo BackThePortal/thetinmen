@@ -634,6 +634,14 @@
 		]
 	},
 	{
+		"name": "Essentials",
+		"special": true,
+		"description": "",
+		"posts": [
+
+		]
+	},
+	{
 		"name": "The pay gap",
 		"description": "Feminist theory defends that on average women are paid less than men for their job. However, this doesn't show the full picture. TheTinMen presents all the data to find what's really behind those fancy but misleading statistics.",
 		"thumbnail": 3,

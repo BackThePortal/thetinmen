@@ -1,8 +1,8 @@
 <template>
 	<div
 		class="transition sm:duration-500 relative group overflow-hidden rounded-lg border-2 border-transparent sm:hover:border-slate-300 sm:hover:scale-105 sm:focus-within:border-slate-300 sm:focus-within:scale-105"
-		@mouseenter="toggleHover('image')"
-		@mouseleave="toggleHover('image')"
+		@mouseenter="toggleHover('image', true)"
+		@mouseleave="toggleHover('image', false)"
 	>
 		<div>
 			<img
@@ -22,8 +22,8 @@
 			</div>
 			<div
 				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-0 bg-gray-600/30 backdrop-blur-xl text-sm w-full post-width text-center z-40 sm:opacity-0 flex flex-col items-center align-bottom content-start gap-1"
-				@mouseenter="toggleHover('links')"
-				@mouseleave="toggleHover('links')"
+				@mouseenter="toggleHover('links', true)"
+				@mouseleave="toggleHover('links', false)"
 			>
 				<Transition>
 					<a
@@ -48,6 +48,8 @@
 			</div>
 			<div
 				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-0 sm:bottom-1/2 text-sm lg:text-base sm:translate-y-16 post-width text-center z-40 opacity-0 sm:group-hover:opacity-80 flex flex-col items-center align-bottom sm:align-top content-start gap-1"
+				@mouseenter="toggleHover('links', true)"
+				@mouseleave="toggleHover('links', false)"
 			>
 				<Transition>
 					<a
@@ -96,9 +98,9 @@ function handleShiftClick(e) {
 	navigator.clipboard.writeText(e.target.href);
 }
 
-function toggleHover(prop) {
+function toggleHover(prop, value) {
 	setTimeout(() => {
-		hover[prop] = !hover[prop];
+		hover[prop] = value;
 	}, 200);
 }
 </script>

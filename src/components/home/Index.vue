@@ -6,7 +6,7 @@
 			<div
 				class="w-full flex max-sm:flex-col-reverse max-sm:gap-4 justify-center xl:px-8"
 			>
-				<div class="basis-full max-sm:hidden"></div>
+				<div class="basis-full max-sm:hidden" />
 				<div class="flex justify-center">
 					<MenuButton
 						v-for="menu in menus"
@@ -36,7 +36,7 @@
 
 <script setup>
 import MenuButton from './MenuButton.vue';
-import SearchBar from '!/home/SearchBar.vue';
+import SearchBar from './SearchBar.vue';
 
 const menus = [
 	{

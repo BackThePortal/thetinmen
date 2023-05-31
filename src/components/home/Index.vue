@@ -26,7 +26,7 @@
 		<div class="p-4 text-center">
 			<a
 				href="https://github.com/BackThePortal/thetinmen"
-				class="btn-slate"
+				class="btn-slate after:font-[sans-serif] after:content-['_↗']"
 				target="_blank"
 				>GitHub</a
 			>

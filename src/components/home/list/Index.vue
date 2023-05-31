@@ -26,7 +26,7 @@
 					<TableCell>
 						<Popper class="w-full" offset-distance="2">
 							<button
-								class="w-full transition text-left underline decoration-1 underline-offset-2 decoration-dashed text-slate-900 dark:text-slate-300 hover:text-slate-800 discreet-link"
+								class="w-full transition text-left underline decoration-1 underline-offset-2 decoration-dashed hover:text-slate-800 discreet-link"
 							>
 								{{ post.title }}
 							</button>
@@ -41,19 +41,12 @@
 						</Popper>
 					</TableCell>
 					<TableCell>
-						<router-link
-							class="discreet-link text-slate-900 dark:text-slate-300"
-							:to="`/topic/${post.topicID}`"
-						>
+						<router-link class="discreet-link" :to="`/topic/${post.topicID}`">
 							{{ post.topic }}
 						</router-link>
 					</TableCell>
 					<TableCell>
-						<a
-							class="discreet-link text-slate-900 dark:text-slate-300"
-							:href="post.link"
-							target="_blank"
-						>
+						<a class="discreet-link" :href="post.link" target="_blank">
 							{{ prettifyURL(post.link) }}
 						</a>
 					</TableCell>

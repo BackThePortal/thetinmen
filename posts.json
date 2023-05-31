@@ -1401,5 +1401,29 @@
 				"date": "11/01/2023"
 			}
 		]
+	},
+	{
+		"name": "Dating",
+		"posts": [
+			{
+				"title": "An objectification of men",
+				"source": 196,
+				"link": "https://www.instagram.com/p/CFzuCYCg9Qw/",
+				"date": "01/10/2020197",
+				"quotes": [
+					{
+						"quote": "Only women and children are loved unconditionally. A man is only loved on condition he can <b>provide</b>.",
+						"slide": 3,
+						"author": "Chris Rock"
+					}
+				]
+			},
+			{
+				"title": "Hypergamy: The theory that's dividing the Internet",
+				"source": 197,
+				"link": "https://www.instagram.com/p/CrYLpT-tp6q/",
+				"date": "23/04/2023"
+			}
+		]
 	}
 ]

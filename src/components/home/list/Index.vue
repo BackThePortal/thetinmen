@@ -66,14 +66,14 @@
 				<p>
 					Here, you can download the raw data (also available in the repository)
 					and the parsed data. The provided JSON files are minified, since
-					they're obtained directly from the original code.
+					they're obtained directly from the compiled code.
 				</p>
 				<p>
 					The raw data was typed manually and contains the basic data, such as
-					dates in simple format and text descriptions. The parsed data contains
-					other information which is generated on the fly for the website to
-					work, which includes diferent kinds of IDs, dates as JavaScript
-					objects, and other properties.
+					dates in simple format and text descriptions. The parsed data also
+					contains other information which is generated on the fly for the
+					website to work, which includes diferent kinds of IDs, dates as
+					JavaScript objects, and other properties.
 				</p>
 				<p>
 					You'll want to get the raw data if you'd just like to browse the

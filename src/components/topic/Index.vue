@@ -1,9 +1,17 @@
 <template>
 	<div>
-		<div class="my-4 w-full text-center">
-			<router-link to="/home/topics" class="btn-slate"
-				>&larr; Back to topics</router-link
+		<div class="my-4 w-full text-center flex relative">
+			<div class="grow">
+				<router-link to="/home/topics" class="btn-slate"
+					>&larr; Back to topics</router-link
+				>
+			</div>
+			<button
+				class="action-link absolute right-0"
+				@click="infiniteScroll = !infiniteScroll"
 			>
+				{{ infiniteScroll ? 'Disable' : 'Enable' }} infinite scrolling
+			</button>
 		</div>
 		<div
 			class="container mx-auto bg-slate-300/30 dark:bg-slate-600/60 rounded-2xl p-4"
@@ -55,7 +63,9 @@
 					v-show="unloadedPosts"
 					@click="loadMore"
 				>
-					Load more
+					{{
+						arrivedState.bottom && infiniteScroll ? 'Loading...' : 'Load more'
+					}}
 				</button>
 			</div>
 		</div>
@@ -76,13 +86,17 @@ import {
 	reactive,
 	ref,
 	watch,
+	watchEffect,
 } from 'vue';
 import { useRoute } from 'vue-router';
 import Post from './Post.vue';
 import { usePostsStore } from '@/stores/posts.js';
+import { useScroll } from '@vueuse/core';
 
 const route = useRoute();
 const postsStore = usePostsStore();
+
+const { arrivedState } = useScroll(document);
 
 const sortConfig = reactive({ type: 0, order: 'descending' });
 const id = ref(route.params.id);
@@ -121,6 +135,7 @@ const posts = ref(null);
 const lastChunk = ref(1);
 const unloadedPosts = ref(null);
 const chunkSize = 24;
+const infiniteScroll = ref(true);
 
 function fetchPosts() {
 	id.value = route.params.id;
@@ -143,12 +158,18 @@ function loadMore() {
 	if (unloadedPosts) lastChunk.value++;
 }
 
+watchEffect(() => {
+	if (arrivedState.bottom && unloadedPosts.value && infiniteScroll.value) {
+		loadMore();
+	}
+});
+
 watch(
 	[() => route.params, lastChunk],
-	() => {
+	async () => {
 		console.log();
 		if (route.name === 'Topic') {
-			fetchPosts();
+			await fetchPosts();
 		} else if (postsStore.topicExists(route.params?.id)) {
 		}
 	},

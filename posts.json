@@ -2,7 +2,7 @@
 	{
 		"name": "Polls",
 		"special": true,
-		"description": "TheTinMen often posts polls to both male and female followers about a wide range of topics. While these questions are usually focused on men's rights and gender roles, other topics such as LGBT rights, sexuality and mental health are also covered. The sources are either Reddit or polls made in his own Instagram stories. Here's every single poll ever posted in TheTinMen. NOTE: Some links may be unavailable, as I haven't finished adding the properties of each post yet.",
+		"description": "TheTinMen often posts polls to both male and female followers about a wide range of topics. While these questions are usually focused on men's rights and gender roles, other topics such as LGBT rights, sexuality and mental health are also covered. The source is usually Reddit. Here's every single poll ever posted in TheTinMen. NOTE: Some links may be unavailable, as I haven't finished adding the properties of each post yet.",
 		"posts": [
 			{
 				"title": "What kept you alive?",
@@ -537,7 +537,7 @@
 			{
 				"title": "Men, what male stereotypes don't apply to you?",
 				"source": 155,
-				"link": "https://www.instagram.com/p/CdX1TXotqFG/",
+				"link": "",
 				"blog": "https://thetinmen.blog/men-what-male-stereotypes-dont-apply-to-you/",
 				"date": "02/05/2022"
 			},
@@ -636,6 +636,24 @@
 				"source": 200,
 				"link": "https://www.instagram.com/p/CstGfXvtJ8x/",
 				"date": "26/05/2023"
+			},
+			{
+				"title": "What is abusive, but is not widely recognised as abuse?",
+				"source": 203,
+				"link": "https://www.instagram.com/p/CuxARAeNOYy/",
+				"date": "17/07/2023"
+			},
+			{
+				"title": "What screams I'm in a healthy relationship?",
+				"source": 204,
+				"link": "https://www.instagram.com/p/CujdCcftm33/",
+				"date": "11/07/2023"
+			},
+			{
+				"title": "What about the opposite sex confuses you?",
+				"source": 205,
+				"link": "https://www.instagram.com/p/CtrbM5MNWiJ/",
+				"date": "19/06/2023"
 			}
 		]
 	},
@@ -652,10 +670,41 @@
 				"quotes": [
 					{
 						"quote": "Men are treated as <b>competent but disposable</b>, women are treated as <b>incompotent but precious</b>.",
-						"slide": [[3, 4], 10],
+						"slide": [
+							[
+								3,
+								4
+							],
+							10
+						],
 						"author": "TheTinMen"
 					}
 				]
+			},
+			{
+				"title": "Empowered women make empowered choices",
+				"source": 202,
+				"link": "https://www.instagram.com/p/Csn0NsMt0oV/",
+				"date": "24/05/2023"
+			},
+			{
+				"title": "The game of life: The male experience",
+				"source": 208,
+				"link": "https://www.instagram.com/p/CsqfomsNAy-/",
+				"date": "25/05/2023"
+			}
+		]
+	},
+	{
+		"name": "Stories",
+		"description": "TheTinMen tells us stories about brave and noble people who made this world a better place.",
+		"special": true,
+		"posts": [
+			{
+				"title": "Mama Lucia",
+				"source": 213,
+				"link": "https://www.instagram.com/p/CSZEoEzN83o",
+				"date": "10/08/2021"
 			}
 		]
 	},
@@ -736,6 +785,12 @@
 				"source": 190,
 				"link": "https://www.instagram.com/p/CrVjDBuNfEY/",
 				"date": "22/04/2023"
+			},
+			{
+				"title": "Mischaracterisation of modern fatherhood by sitcoms",
+				"source": 212,
+				"link": "https://www.instagram.com/p/CVKoFdVNLAV",
+				"date": "18/10/2021"
 			}
 		]
 	},
@@ -831,6 +886,57 @@
 			},
 			{
 				"title": "An open letter to men's mental health advocates",
+				"tags": [
+					"suicide"
+				],
+				"stats": [
+					{
+						"type": "percentage",
+						"value": 11,
+						"description": "$$ of male victims of domestic violence have considered taking their life due to partner abuse",
+						"country": "UK",
+						"year": [2017, 2018],
+						"source": {
+							"title": "Partner abuse in detail",
+							"link": "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/partnerabuseindetailappendixtables",
+							"author": "ONS"
+						},
+						"origin": {
+							"title": "Male Victims - Domestic and Partner Abuse Statistics",
+							"link": "https://mankind.org.uk/wp-content/uploads/2023/06/4-Key-Facts-on-Male-Victims-of-Domestic-Abuse-2023-final-June-2023.pdf",
+							"author": "ManKind Initiative"
+						},
+						"slide": 6
+					},
+					{
+						"type": "number-million",
+						"value": 2.9,
+						"comparison": {
+							"value": 5.9,
+							"demographic": "women"
+						},
+						"description": "In Great Britain, there are $$ million male abuse victims",
+						"source": {
+							"title": "Supporting male victims",
+							"link": "https://www.gov.uk/government/publications/supporting-male-victims/supporting-male-victims-accessible",
+							"author": "UK Home Office"
+
+						},
+						"slide": 6
+					},
+					{
+						"type": "percentage",
+						"value": 60,
+						"description": " If researchers only include intimate partner homicides, they may miss over $$ of IPV-related deaths",
+						"year": 2020,
+						"source": {
+							"title": "Fatalities related to intimate partner violence: towards a comprehensive perspective",
+							"link": "https://injuryprevention.bmj.com/content/27/2/137",
+							"author": "Kafka et al."
+						},
+						"slide": 5
+					}
+				],
 				"source": 180,
 				"link": "https://www.instagram.com/p/CpP7Pb2NHwD/",
 				"date": "01/03/2023"
@@ -869,6 +975,12 @@
 				"source": 193,
 				"link": "https://www.instagram.com/p/Cnl_3fhNaqu/",
 				"date": "19/01/2023"
+			},
+			{
+				"title": "The crisis of men's health gets worse",
+				"source": 207,
+				"link": "https://www.instagram.com/p/CuWrGkBt4UJ/",
+				"date": "06/07/2023"
 			}
 		]
 	},
@@ -939,6 +1051,13 @@
 				"source": 63,
 				"link": "https://www.instagram.com/p/CohiYvaNNn0/",
 				"date": "11/02/2023"
+			},
+			{
+				"title": "Earl Silverman: The man who gave everything",
+				"tags": ["abuse refuges", "survivor of abuse"],
+				"source": 210,
+				"link": "https://www.instagram.com/p/Crf2mmRtj9V",
+				"date": "26/04/2023"
 			}
 		]
 	},
@@ -1061,7 +1180,7 @@
 				"date": "01/03/2022"
 			},
 			{
-				"title": "Feminism",
+				"title": "Feminism: Avoiding generalisations",
 				"source": 40,
 				"link": "https://www.instagram.com/p/CN-MFDvgIIi/",
 				"date": "22/04/2021"
@@ -1136,6 +1255,12 @@
 				"source": 181,
 				"link": "https://www.instagram.com/p/CpfTmpBNpMu/",
 				"date": "07/03/2023"
+			},
+			{
+				"title": "You don't cut off body parts to avoid cleaning them",
+				"source": 209,
+				"link": "https://www.instagram.com/p/CtOk1DZtN91/",
+				"date": "08/06/2023"
 			}
 		]
 	},
@@ -1223,7 +1348,7 @@
 	},
 	{
 		"name": "The glass floor",
-		"alt": "homelessness",
+		"tags": ["homelessness"],
 		"posts": [
 			{
 				"title": "The Glass Floor",
@@ -1365,24 +1490,52 @@
 		"name": "IMD & IWD",
 		"description": "Every International Men's Day and International Women's Day, TheTinMen reminds us of the good in both women and men.",
 		"special": true,
+		"thumbnail": 175,
+		"meta": {
+			"groups": true,
+			"names": true,
+			"hideSort": true
+		},
 		"posts": [
 			{
 				"title": "What is a woman? (IWD 2023)",
 				"source": 171,
 				"link": "https://www.instagram.com/p/CphvG14NFyA/",
-				"date": "08/03/2023"
+				"date": "08/03/2023",
+				"meta": {
+					"group": ["2023"],
+					"name": "International Women's Day"
+				}
 			},
 			{
 				"title": "To the women (IWD 2022)",
 				"source": 175,
 				"link": "https://www.instagram.com/p/Ca1lyN-NTKv/",
-				"date": "08/03/2022"
+				"date": "08/03/2022",
+				"meta": {
+					"group": ["2022"],
+					"name": "International Women's Day"
+				}
 			},
 			{
 				"title": "What is a man? (IMD 2022)",
 				"source": 178,
 				"link": "https://www.instagram.com/p/ClJCDCeNkgR/",
-				"date": "19/11/2022"
+				"date": "19/11/2022",
+				"meta": {
+					"group": ["2022"],
+					"name": "International Men's Day"
+				}
+			},
+			{
+				"title": "A day without men? (IMD 2021)",
+				"source": 214,
+				"link": "https://www.instagram.com/p/CWdFwpstXn0/",
+				"date": "19/11/2021",
+				"meta": {
+					"group": ["2021"],
+					"name": "International Men's Day"
+				}
 			}
 		]
 	},
@@ -1402,6 +1555,7 @@
 		"posts": [
 			{
 				"title": "\"Deadbeat\"",
+				"tags": ["family", "child support"],
 				"source": 192,
 				"link": "https://www.instagram.com/p/Cqu_C3uNi_L/",
 				"date": "07/04/2023"
@@ -1414,9 +1568,23 @@
 			},
 			{
 				"title": "The lost boys",
+				"tags": ["fatherlessness", "father absence"],
 				"source": 201,
 				"link": "https://www.instagram.com/p/Cq5TGc_NS5I/",
 				"date": "11/04/2023"
+			},
+			{
+				"title": "You are not the father",
+				"tags": ["paternity fraud"],
+				"source": 206,
+				"link": "https://www.instagram.com/p/CurYb1ct1JE/",
+				"date": "14/07/2023"
+			},
+			{
+				"title": "The importance of dads",
+				"source": 211,
+				"link": "https://www.instagram.com/p/CUFIKV8NQAI/",
+				"date": "21/09/2021"
 			}
 		]
 	},
@@ -1427,7 +1595,7 @@
 				"title": "An objectification of men",
 				"source": 196,
 				"link": "https://www.instagram.com/p/CFzuCYCg9Qw/",
-				"date": "01/10/2020197",
+				"date": "01/10/2020",
 				"quotes": [
 					{
 						"quote": "Only women and children are loved unconditionally. A man is only loved on condition he can <b>provide</b>.",

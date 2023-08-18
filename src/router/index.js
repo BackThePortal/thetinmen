@@ -1,5 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Redirects from '@/router/redirects';
+import TopicsIndex from '!/home/topics/Index.vue';
+import ListIndex from '!/home/list/Index.vue';
+import TimelineIndex from '!/home/timeline/Index.vue';
+import SearchIndex from '!/home/search/Index.vue';
 
 const routes = [
 	// Pages
@@ -16,35 +20,35 @@ const routes = [
 			{
 				path: 'topics',
 				name: 'Topics',
-				component: () => import('!/home/topics/Index.vue'),
+				component: TopicsIndex,
 			},
 			{
 				path: 'list',
 				name: 'List',
-				component: () => import('!/home/list/Index.vue'),
+				component: ListIndex,
 			},
 			{
 				path: 'timeline',
 				name: 'Timeline',
-				component: () => import('!/home/timeline/Index.vue'),
+				component: TimelineIndex,
 			},
 			{
 				path: 'search',
 				name: 'Search',
-				component: () => import('!/home/search/Index.vue'),
+				component: SearchIndex,
 			},
 		],
 	},
 	{
 		path: '/topic/:id',
+		component: () => import('!/topic/Index.vue'),
 		children: [
 			{
 				path: '',
 				name: 'Topic',
-				component: () => import('!/topic/Index.vue'),
 			},
 			{
-				path: '/post/:id',
+				path: 'post/:id',
 				name: 'Post',
 				component: () => import('!/topic/post/Index.vue'),
 			},

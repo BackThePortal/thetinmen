@@ -13,10 +13,10 @@ export const usePostsStore = defineStore('posts', {
 				post.date =
 					post.date === '' ? null : DateUtils.dateToObject(String(post.date));
 				post.id = topic.posts.indexOf(post) + 1;
-				post.globalId = post.source;
+				post.globalID = post.source;
 			});
 			topic.lastUpdated = new Date(
-				Math.max(...topic.posts.map((b) => new Date(b.date)))
+				Math.max(...topic.posts.map((b) => new Date(b.date))),
 			);
 		});
 
@@ -28,7 +28,6 @@ export const usePostsStore = defineStore('posts', {
 	},
 	getters: {
 		getParsedData: (state) => {
-			// Reports "unresolved reference" error in IDE
 			return state.parsedPosts;
 		},
 		/**
@@ -63,6 +62,9 @@ export const usePostsStore = defineStore('posts', {
 		},
 		getPostById(topicId, id) {
 			return this.getTopicById(topicId)?.posts?.[id - 1];
+		},
+		parseGroups(data) {
+			const groups = data.map((post) => post.meta.group[0]);
 		},
 	},
 });

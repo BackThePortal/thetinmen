@@ -60,6 +60,13 @@ const routes = [
 
 const router = createRouter({
 	history: createWebHashHistory('/thetinmen/'),
+	scrollBehavior(to, from, savedPosition) {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				resolve({ left: 0, top: 0 });
+			}, 500);
+		});
+	},
 	routes,
 });
 

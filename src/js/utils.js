@@ -7,7 +7,7 @@
  * @returns {string} - Path to the image.
  */
 export function getImagePath(id) {
-	return `/thetinmen/${id}.jpg`;
+	return `/thetinmen/thetinmen-db/images/${id}.jpg`;
 }
 
 export class DateUtils {

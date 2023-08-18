@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import Posts from '@/../posts.json';
+import Posts from '@/../thetinmen-db/posts.json';
 import { DateUtils } from '@/js/utils.js';
 
 export const usePostsStore = defineStore('posts', {

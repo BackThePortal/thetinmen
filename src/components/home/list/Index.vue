@@ -1,10 +1,10 @@
 <template>
 	<div
-		class="border border-slate-300 bg-slate-500/60 dark:bg-slate-600/80 w-full text-sm overflow-x-auto inline-block whitespace-nowrap max-sm:text-sm"
+		class="inline-block w-full overflow-x-auto whitespace-nowrap border border-slate-300 bg-slate-500/60 text-sm dark:bg-slate-600/80 max-sm:text-sm"
 	>
-		<table class="table-auto border-collapse w-full">
+		<table class="w-full table-auto border-collapse shadow-inner">
 			<thead
-				class="text-left bg-gradient-to-r from-theme-primary to-theme-secondary"
+				class="bg-gradient-to-r from-theme-primary to-theme-secondary text-left"
 			>
 				<tr class="border border-slate-700">
 					<TableHeader
@@ -21,18 +21,18 @@
 					class="group even:bg-slate-500/80 even:dark:bg-slate-500/80"
 				>
 					<TableCell class="text-right font-mono">
-						{{ post.globalId }}
+						{{ post.globalID }}
 					</TableCell>
 					<TableCell>
 						<Popper class="w-full" offset-distance="2">
 							<button
-								class="w-full transition text-left underline decoration-1 underline-offset-2 decoration-dashed hover:text-slate-800 discreet-link"
+								class="discreet-link w-full text-left underline decoration-dashed decoration-1 underline-offset-2 transition hover:text-slate-800"
 							>
 								{{ post.title }}
 							</button>
 							<template #content>
 								<img
-									class="transition w-48 h-60 rounded-sm opacity-80 hover:brightness-105 hover:opacity-100"
+									class="h-60 w-48 rounded-sm opacity-80 transition hover:opacity-100 hover:brightness-105"
 									:alt="post?.alt ?? post.title"
 									ref="image"
 									:src="getImagePath(post.source)"
@@ -46,12 +46,21 @@
 						</router-link>
 					</TableCell>
 					<TableCell>
-						<a class="discreet-link" :href="post.link" target="_blank">
+						<span
+							v-if="post.link === ''"
+							class="text-slate-700 dark:text-slate-400"
+						>
+							No link available
+						</span>
+						<a v-else class="discreet-link" :href="post.link" target="_blank">
 							{{ prettifyURL(post.link) }}
 						</a>
 					</TableCell>
 					<TableCell class="font-mono">
-						{{ DateUtils.objectToDate(post.date) }}
+						<span v-if="post.date === ''"> &mdash; </span>
+						<span v-else>
+							{{ DateUtils.objectToDate(post.date) }}
+						</span>
 					</TableCell>
 				</tr>
 			</tbody>
@@ -62,7 +71,7 @@
 			<h3 class="text-lg text-slate-800 dark:text-slate-200">
 				Download the data
 			</h3>
-			<div class="text-slate-700 dark:text-slate-300 space-y-2">
+			<div class="space-y-2 text-slate-700 dark:text-slate-300">
 				<p>
 					Here, you can download the raw data (also available in the repository)
 					and the parsed data. The provided JSON files are minified, since
@@ -134,6 +143,6 @@ function downloadFile(blob, filename) {
 
 <style scoped>
 :deep(.popper) {
-	@apply bg-slate-800/20 p-3 backdrop-blur-sm hover:bg-slate-800/20 rounded-md border-2 border-slate-200;
+	@apply rounded-md border-2 border-slate-200 bg-slate-800/20 p-3 backdrop-blur-sm hover:bg-slate-800/20;
 }
 </style>

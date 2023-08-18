@@ -32,5 +32,6 @@ module.exports = {
 			addVariant('touch', '@media (hover: none)');
 			addVariant('not-touch', '@media not (hover: none)');
 		}),
+		require('@tailwindcss/forms'),
 	],
 };

@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="transition sm:duration-500 relative group overflow-hidden rounded-lg border-2 border-transparent sm:hover:border-slate-300 sm:hover:scale-105 sm:focus-within:border-slate-300 sm:focus-within:scale-105"
+		class="group relative overflow-hidden rounded-lg border-2 border-transparent transition sm:duration-500 sm:focus-within:scale-105 sm:focus-within:border-slate-300 sm:hover:scale-105 sm:hover:border-slate-300"
 		@mouseenter="toggleHover('image', true)"
 		@mouseleave="toggleHover('image', false)"
 	>
@@ -9,10 +9,10 @@
 				:alt="data?.alt ?? data.title"
 				ref="image"
 				:src="getImagePath(data.source)"
-				class="select-none z-0 transition duration-500 rounded-lg post-height post-width shadow-md sm:group-hover:brightness-50 contrast-more:sm:group-hover:brightness-[.15] sm:group-hover:blur-md sm:group-hover:saturate-50"
+				class="post-height post-width z-0 select-none rounded-lg shadow-md transition duration-500 sm:group-hover:blur-md sm:group-hover:brightness-50 sm:group-hover:saturate-50 contrast-more:sm:group-hover:brightness-[.15]"
 			/>
 			<div
-				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-1/2 font-semibold px-3 post-width text-center text-xs sm:text-xs md:text-sm lg:text-base xl:text-lg z-40 text-slate-200 opacity-0 sm:group-hover:opacity-80"
+				class="post-width absolute bottom-1/2 z-40 transform-gpu px-3 text-center text-xs font-semibold text-slate-200 subpixel-antialiased opacity-0 transition-all duration-500 sm:text-xs sm:group-hover:opacity-80 md:text-sm lg:text-base xl:text-lg"
 			>
 				<span v-if="data.date" class="font-light">{{
 					DateUtils.objectToDate(data.date)
@@ -21,7 +21,7 @@
 				<span>{{ data.title }}</span>
 			</div>
 			<div
-				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-0 bg-gray-600/30 backdrop-blur-xl text-sm w-full post-width text-center z-40 sm:opacity-0 flex flex-col items-center align-bottom content-start gap-1"
+				class="post-width absolute bottom-0 z-40 flex w-full transform-gpu flex-col content-start items-center gap-1 bg-gray-600/30 text-center align-bottom text-sm subpixel-antialiased backdrop-blur-xl transition-all duration-500 sm:opacity-0"
 				@mouseenter="toggleHover('links', true)"
 				@mouseleave="toggleHover('links', false)"
 			>
@@ -47,10 +47,20 @@
 				</Transition>
 			</div>
 			<div
-				class="transform-gpu subpixel-antialiased transition-all duration-500 absolute bottom-0 sm:bottom-1/2 text-sm lg:text-base sm:translate-y-16 post-width text-center z-40 opacity-0 sm:group-hover:opacity-80 flex flex-col items-center align-bottom sm:align-top content-start gap-1"
+				class="post-width absolute bottom-0 z-40 flex transform-gpu flex-col content-start items-center gap-1 text-center align-bottom text-sm subpixel-antialiased opacity-0 transition-all duration-500 sm:bottom-1/2 sm:translate-y-16 sm:align-top sm:group-hover:opacity-80 lg:text-base"
 				@mouseenter="toggleHover('links', true)"
 				@mouseleave="toggleHover('links', false)"
 			>
+				<template v-if="showTopic">
+					<Transition>
+						<router-link
+							v-if="isHovering"
+							:to="`/topic/${data.topicID}`"
+							class="link"
+							>Go to topic</router-link
+						>
+					</Transition>
+				</template>
 				<Transition>
 					<a
 						v-if="data.link && isHovering"
@@ -63,7 +73,7 @@
 				</Transition>
 				<Transition>
 					<a
-						v-if="data.blog && isHovering"
+						v-if="!showTopic && data.blog && isHovering"
 						:href="data.blog"
 						target="_blank"
 						class="link max-sm:hidden"
@@ -83,7 +93,7 @@ import { usePostsStore } from '@/stores/posts.js';
 
 const postsStore = usePostsStore();
 
-const props = defineProps(['topic', 'id']);
+const props = defineProps(['topic', 'id', 'showTopic']);
 const data = postsStore.getPostById(props.topic, props.id);
 const link = ref(prettifyURL(data.link));
 
@@ -96,6 +106,11 @@ const isHovering = computed(() => Object.values(hover).includes(true));
 
 function handleShiftClick(e) {
 	navigator.clipboard.writeText(e.target.href);
+	const previousText = e.target.innerHTML;
+	e.target.innerHTML = 'Copied!';
+	setTimeout(() => {
+		e.target.innerHTML = previousText;
+	}, 1000);
 }
 
 function toggleHover(prop, value) {
@@ -107,7 +122,7 @@ function toggleHover(prop, value) {
 
 <style scoped>
 .link {
-	@apply transition-all text-slate-100 sm:text-slate-200 sm:hover:font-semibold underline underline-offset-2 sm:hover:decoration-2 max-md:active:decoration-2 sm:hover:bg-slate-300/30 backdrop-brightness-100 max-md:active:backdrop-brightness-125 max-sm:w-full sm:active:bg-slate-300/60 pb-1 px-2 sm:rounded w-fit;
+	@apply w-fit px-2 pb-1 text-slate-100 underline underline-offset-2 backdrop-brightness-100 transition-all max-md:active:decoration-2 max-md:active:backdrop-brightness-125 max-sm:w-full sm:rounded sm:text-slate-200 sm:hover:bg-slate-300/30 sm:hover:font-semibold sm:hover:decoration-2 sm:active:bg-slate-300/60;
 }
 
 .post-width {

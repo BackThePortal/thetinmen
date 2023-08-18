@@ -2,7 +2,7 @@ export default function updateTheme() {
 	if (
 		localStorage.getItem('theme') === 'dark' ||
 		(!('theme' in localStorage) &&
-			window.matchMedia('(prefers-color-scheme: dark)').matches)
+			window.matchMedia('(prefers-color-scheme: dark)'))
 	) {
 		document.documentElement.classList.add('dark');
 	} else {

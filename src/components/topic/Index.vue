@@ -1,35 +1,41 @@
 <template>
 	<div>
-		<div class="my-4 w-full text-center flex relative">
+		<div
+			class="my-4 flex w-full text-center max-md:flex-col max-md:gap-2 md:relative"
+		>
 			<div class="grow">
 				<router-link to="/home/topics" class="btn-slate"
 					>&larr; Back to topics</router-link
 				>
 			</div>
 			<button
-				class="action-link absolute right-0"
+				class="action-link md:absolute md:right-0"
 				@click="infiniteScroll = !infiniteScroll"
+				v-if="lastChunk !== 1 || unloadedPosts"
 			>
 				{{ infiniteScroll ? 'Disable' : 'Enable' }} infinite scrolling
 			</button>
 		</div>
 		<div
-			class="container mx-auto bg-slate-300/30 dark:bg-slate-600/60 rounded-2xl p-4"
+			class="container mx-auto rounded-2xl bg-slate-300/30 p-4 dark:bg-slate-600/60"
 		>
 			<h2
-				class="font-bold border-b border-slate-600 dark:border-slate-200 mb-1 text-black dark:text-slate-100"
+				class="mb-1 border-b border-slate-600 font-bold text-black dark:border-slate-200 dark:text-slate-100"
 			>
 				{{ topicData.name }}
 			</h2>
 			<p
 				v-if="topicData.description !== '' && topicData.description"
-				class="font-normal text-slate-800 dark:text-slate-200 border-b border-slate-600 dark:border-slate-200 pb-1"
+				class="border-b border-slate-600 pb-1 font-normal text-slate-800 dark:border-slate-200 dark:text-slate-200"
 			>
 				{{ topicData.description }}
 			</p>
-			<div class="flex justify-stretch items-center mt-2 mb-4 w-full px-4">
+			<div
+				class="justify-stretch mt-2 mb-4 flex w-full items-center px-4"
+				v-if="!topicData.meta?.hideSort"
+			>
 				<div class="basis-full"></div>
-				<span class="text-center text-slate-700 dark:text-slate-300 min-w-fit">
+				<span class="min-w-fit text-center text-slate-700 dark:text-slate-300">
 					Sorted by
 					<span class="text-slate-800 dark:text-slate-200">Date</span>,
 					<button
@@ -47,7 +53,7 @@
 				<div class="basis-full"></div>
 			</div>
 
-			<div class="flex flex-row flex-wrap gap-4 select-none justify-center m-4">
+			<div class="m-4 flex select-none flex-row flex-wrap justify-center gap-4">
 				<Post
 					@mouseover="setHover(true, post.id)"
 					@mouseleave="setHover()"
@@ -64,13 +70,17 @@
 					@click="loadMore"
 				>
 					{{
-						arrivedState.bottom && infiniteScroll ? 'Loading...' : 'Load more'
+						infiniteScroll
+							? arrivedState.bottom
+								? 'Loading...'
+								: 'Scroll down to load'
+							: 'Load more'
 					}}
 				</button>
 			</div>
 		</div>
 		<p
-			class="text-sm text-center mx-5 py-4 mb-4 border-b border-slate-300 text-slate-800 dark:text-slate-200"
+			class="mx-5 mb-4 border-b border-slate-300 py-4 text-center text-sm text-slate-800 touch:hidden dark:text-slate-200"
 		>
 			<b>Tip</b>: Shift-click a post link to copy it to the clipboard.
 		</p>
@@ -135,7 +145,13 @@ const posts = ref(null);
 const lastChunk = ref(1);
 const unloadedPosts = ref(null);
 const chunkSize = 24;
-const infiniteScroll = ref(true);
+let lastLoad = 0;
+
+const infiniteScroll = ref(!!localStorage.getItem('infiniteScroll'));
+
+watchEffect(() => {
+	localStorage.setItem('infiniteScroll', infiniteScroll.value.toString());
+});
 
 function fetchPosts() {
 	id.value = route.params.id;
@@ -143,6 +159,7 @@ function fetchPosts() {
 	unloadedPosts.value =
 		topicData.value.posts.length - lastChunk.value * chunkSize;
 	if (unloadedPosts.value <= 0) unloadedPosts.value = undefined;
+	console.log(sortConfig);
 	posts.value = topicData.value.posts
 		.slice()
 		.sort(sortTypes[sortConfig.type].functions[sortConfig.order])
@@ -150,12 +167,14 @@ function fetchPosts() {
 			0,
 			unloadedPosts.value === undefined
 				? undefined
-				: lastChunk.value * chunkSize
+				: lastChunk.value * chunkSize,
 		);
 }
 
 function loadMore() {
-	if (unloadedPosts) lastChunk.value++;
+	if (unloadedPosts && (lastLoad === 0 || Date.now() - lastLoad > 200))
+		lastChunk.value++;
+	lastLoad = Date.now();
 }
 
 watchEffect(() => {
@@ -165,7 +184,7 @@ watchEffect(() => {
 });
 
 watch(
-	[() => route.params, lastChunk],
+	[() => route.params, lastChunk, sortConfig],
 	async () => {
 		console.log();
 		if (route.name === 'Topic') {
@@ -173,7 +192,7 @@ watch(
 		} else if (postsStore.topicExists(route.params?.id)) {
 		}
 	},
-	{ immediate: true }
+	{ immediate: true },
 );
 
 onMounted(() => {
